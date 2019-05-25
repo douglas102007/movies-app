@@ -51,6 +51,8 @@ proxy.conf.js                configurtação de proxy
     * Watchlist - filmes que o usuário marcar para assistir
     * Ajustar tamanho de posters para manter padrão
     * Pesquisa de filmes por Nome do Filme, Diretor, Ator.
+    * Navbar não ficar fixa em telas pequenas(sm)
+    * Ajuste de paginadores em telas pequenas
 
 - Tela Inicial:
     * Lista de filmes populares
@@ -67,10 +69,12 @@ proxy.conf.js                configurtação de proxy
 
 - Novas telas:
     * Tela para todos os filmes e filtrar combinando categorias/ano
+    
 
 - Testes:
     * Escrever testes unitários de todas as chamadas de API
     * Escrever testes E2E para navegar por categorias
+    
 
 
 ## License

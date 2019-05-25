@@ -1,0 +1,149 @@
+<div class="container-fluid">
+  <nav aria-label="Page navigation example" style="padding-top: 10px;" *ngIf="!isLoading">
+    <ul class="pagination justify-content-center">
+      <li class="pagination-item" [class.disabled]="page == 1">
+        <a class="pagination-link" (click)="changePage(1)" translate>First</a>
+      </li>
+
+      <li class="pagination-item" [class.disabled]="page == 1">
+        <a class="pagination-link" (click)="changePage(page - 1)" translate>Previous</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page - 5 > 0 && page + 3 > moviePages.total_pages">
+        <a class="pagination-link" (click)="changePage(page - 5)" translate>{{ page - 5 }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page - 4 > 0 && page + 2 > moviePages.total_pages">
+        <a class="pagination-link" (click)="changePage(page - 4)" translate>{{ page - 4 }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page - 3 > 0 && page + 1 > moviePages.total_pages">
+        <a class="pagination-link" (click)="changePage(page - 3)" translate>{{ page - 3 }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page - 2 > 0">
+        <a class="pagination-link" (click)="changePage(page - 2)" translate>{{ page - 2 }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page - 1 > 0">
+        <a class="pagination-link" (click)="changePage(page - 1)" translate>{{ page - 1 }}</a>
+      </li>
+
+      <li class="pagination-item disabled">
+        <a class="pagination-link current" translate>{{ page }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page + 1 <= moviePages.total_pages">
+        <a class="pagination-link" (click)="changePage(page + 1)" translate>{{ page + 1 }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page + 2 <= moviePages.total_pages">
+        <a class="pagination-link" (click)="changePage(page + 2)" translate>{{ page + 2 }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page + 3 <= moviePages.total_pages && page - 1 < 1">
+        <a class="pagination-link" (click)="changePage(page + 3)" translate>{{ page + 3 }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page + 4 <= moviePages.total_pages && page - 2 < 1">
+        <a class="pagination-link" (click)="changePage(page + 4)" translate>{{ page + 4 }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page + 5 <= moviePages.total_pages && page - 3 < 1">
+        <a class="pagination-link" (click)="changePage(page + 5)" translate>{{ page + 5 }}</a>
+      </li>
+
+      <li class="pagination-item" [class.disabled]="page == moviePages.total_pages">
+        <a class="pagination-link" (click)="changePage(page + 1)" translate>Next</a>
+      </li>
+
+      <li class="pagination-item" [class.disabled]="page == moviePages.total_pages">
+        <a class="pagination-link" (click)="changePage(moviePages.total_pages)" translate>Last</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="row" *ngIf="!isLoading">
+    <div *ngFor="let movies of moviePages.results" class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-6">
+      <div class="movie-container">
+        <a [routerLink]="'/movie-details/' + movies.id" routerLinkActive="active">
+          <img
+            [src]="'https://image.tmdb.org/t/p/w500/' + movies.poster_path"
+            onError="this.src='../../assets/poster-placeholder.png';"
+            class="movie-poster"
+          />
+          <div class="movie-titles">
+            <h5>{{ movies.title }}</h5>
+            <span>{{ movies.release_date | date: 'y' }}</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <nav aria-label="Page navigation example" *ngIf="!isLoading">
+    <ul class="pagination justify-content-center">
+      <li class="pagination-item" [class.disabled]="page == 1">
+        <a class="pagination-link" (click)="changePage(1)" translate>First</a>
+      </li>
+
+      <li class="pagination-item" [class.disabled]="page == 1">
+        <a class="pagination-link" (click)="changePage(page - 1)" translate>Previous</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page - 5 > 0 && page + 3 > moviePages.total_pages">
+        <a class="pagination-link" (click)="changePage(page - 5)" translate>{{ page - 5 }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page - 4 > 0 && page + 2 > moviePages.total_pages">
+        <a class="pagination-link" (click)="changePage(page - 4)" translate>{{ page - 4 }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page - 3 > 0 && page + 1 > moviePages.total_pages">
+        <a class="pagination-link" (click)="changePage(page - 3)" translate>{{ page - 3 }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page - 2 > 0">
+        <a class="pagination-link" (click)="changePage(page - 2)" translate>{{ page - 2 }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page - 1 > 0">
+        <a class="pagination-link" (click)="changePage(page - 1)" translate>{{ page - 1 }}</a>
+      </li>
+
+      <li class="pagination-item disabled">
+        <a class="pagination-link current" translate>{{ page }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page + 1 <= moviePages.total_pages">
+        <a class="pagination-link" (click)="changePage(page + 1)" translate>{{ page + 1 }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page + 2 <= moviePages.total_pages">
+        <a class="pagination-link" (click)="changePage(page + 2)" translate>{{ page + 2 }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page + 3 <= moviePages.total_pages && page - 1 < 1">
+        <a class="pagination-link" (click)="changePage(page + 3)" translate>{{ page + 3 }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page + 4 <= moviePages.total_pages && page - 2 < 1">
+        <a class="pagination-link" (click)="changePage(page + 4)" translate>{{ page + 4 }}</a>
+      </li>
+
+      <li class="pagination-item" *ngIf="page + 5 <= moviePages.total_pages && page - 3 < 1">
+        <a class="pagination-link" (click)="changePage(page + 5)" translate>{{ page + 5 }}</a>
+      </li>
+
+      <li class="pagination-item" [class.disabled]="page == moviePages.total_pages">
+        <a class="pagination-link" (click)="changePage(page + 1)" translate>Next</a>
+      </li>
+
+      <li class="pagination-item" [class.disabled]="page == moviePages.total_pages">
+        <a class="pagination-link" (click)="changePage(moviePages.total_pages)" translate>Last</a>
+      </li>
+    </ul>
+  </nav>
+
+  <app-loader [isLoading]="isLoading"></app-loader>
+</div>

@@ -1,0 +1,128 @@
+<div class="container-fluid">
+  <div class="text-center" *ngIf="!isLoadingGenres || !isLoadingUpcoming || !isLoadingNowPlayings">
+    <ngb-carousel class="carousel-body smooth">
+      <ng-template ngbSlide *ngFor="let movie of upcomingMovies" class="big-carousel-bg-image">
+        <!--img [src]="'https://image.tmdb.org/t/p/original/'+movie.backdrop_path" class="big-carousel-image" alt="Random first slide" /-->
+        <div
+          class="carousel-item-body"
+          [style.background-image]="'url(' + 'https://image.tmdb.org/t/p/original/' + movie.backdrop_path + ')'"
+        >
+          <a [routerLink]="'/movie-details/' + movie.id" routerLinkActive="active">
+            <div class="carousel-titles">
+              <h3>{{ movie.title }}</h3>
+              <p>{{ movie.overview }}</p>
+              <p><span translate>Release</span>: {{ movie.release_date | date: 'dd/MM/y' }}</p>
+            </div>
+          </a>
+
+          <div class="carousel-floating">
+            <span translate>Coming Soon to Theaters</span> <i class="fas fa-surprise"></i>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+
+    <div id="container">
+      <h3 translate class="carousel-small-header">Playing on Theaters</h3>
+      <div
+        ng2-carouselamos
+        class="slides-wrapper"
+        [items]="nowPlaying"
+        [$prev]="prev"
+        [$next]="next"
+        [$item]="item"
+      ></div>
+
+      <ng-template #prev>
+        <a class="carousel-control-prev small-carousel-control" role="button">
+          <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </ng-template>
+
+      <ng-template #next class="small_carousel-control-container">
+        <a class="carousel-control-next small-carousel-control" role="button">
+          <span aria-hidden="true" class="carousel-control-next-icon"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </ng-template>
+
+      <ng-template #item let-item let-i="index">
+        <div class="slide-items smooth-transition">
+          <a [routerLink]="'/movie-details/' + item.id" routerLinkActive="active">
+            <img [src]="'https://image.tmdb.org/t/p/w500/' + item.poster_path" />
+          </a>
+        </div>
+      </ng-template>
+    </div>
+
+    <div id="container">
+      <h3 translate class="carousel-small-header">Top 20</h3>
+      <div
+        ng2-carouselamos
+        class="slides-wrapper"
+        [items]="topRated"
+        [$prev]="prev"
+        [$next]="next"
+        [$item]="item"
+      ></div>
+
+      <ng-template #prev>
+        <a class="carousel-control-prev small-carousel-control" role="button">
+          <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </ng-template>
+
+      <ng-template #next class="small_carousel-control-container">
+        <a class="carousel-control-next small-carousel-control" role="button">
+          <span aria-hidden="true" class="carousel-control-next-icon"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </ng-template>
+
+      <ng-template #item let-item let-i="index">
+        <div class="slide-items smooth-transition">
+          <a [routerLink]="'/movie-details/' + item.id" routerLinkActive="active">
+            <img [src]="'https://image.tmdb.org/t/p/w500/' + item.poster_path" />
+          </a>
+        </div>
+      </ng-template>
+    </div>
+
+    <!--div id="container" *ngFor="let genre of genres">
+          <h3>{{ genre.name }}</h3>
+        <div
+          ng2-carouselamos
+          class="slides-wrapper"
+          [items]="images"
+          [width]="1920"
+          [$prev]="prev"
+          [$next]="next"
+          [$item]="item"
+        ></div>
+  
+        <ng-template #prev>
+          <a class="carousel-control-prev small-carousel-control" role="button">
+            <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </ng-template>
+  
+        <ng-template #next class="small_carousel-control-container">
+          <a class="carousel-control-next small-carousel-control" role="button">
+            <span aria-hidden="true" class="carousel-control-next-icon"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </ng-template>
+  
+        <ng-template #item let-item let-i="index">
+          <div class="slide-items">
+            <img [src]="'https://image.tmdb.org/t/p/original/'+movie.backdrop_path" />
+          </div>
+        </ng-template>
+      </div-->
+  </div>
+
+  <app-loader [isLoading]="isLoadingGenres || isLoadingUpcoming || isLoadingNowPlayings"></app-loader>
+</div>

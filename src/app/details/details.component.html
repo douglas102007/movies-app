@@ -1,0 +1,75 @@
+<div class="container-fluid">
+  <div class="row" *ngIf="!isLoadingMovie || !isLoadingCredits">
+    <div class="col-md-12">
+      <div
+        class="backgdrop-bg"
+        [style.background-image]="'url(' + 'https://image.tmdb.org/t/p/original/' + movie.backdrop_path + ')'"
+      ></div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="!isLoadingMovie || !isLoadingCredits">
+    <div class="col-md-4">
+      <div class="poster-img">
+        <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" />
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="movie-details-container">
+        <h3>{{ movie.title }}</h3>
+        <p>{{ movie.overview }}</p>
+        <p>
+          <span class="label" translate>Genre</span>: <span *ngFor="let genre of movie.genres">{{ genre.name }}; </span>
+        </p>
+        <p><span class="label" translate>Release date</span>: {{ movie.release_date | date: 'dd/MM/y' }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="!isLoadingMovie || !isLoadingCredits">
+    <div class="col-md-4"></div>
+    <div class="col-md-8">
+      <div class="movie-cast-container">
+        <p><span translate class="label">Cast</span>:</p>
+        <div id="container">
+          <div
+            ng2-carouselamos
+            class="slides-wrapper"
+            [items]="credits.cast"
+            [$prev]="prev"
+            [$next]="next"
+            [$item]="item"
+          ></div>
+
+          <ng-template #prev>
+            <a class="carousel-control-prev small-carousel-control" role="button">
+              <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </ng-template>
+
+          <ng-template #next class="small_carousel-control-container">
+            <a class="carousel-control-next small-carousel-control" role="button">
+              <span aria-hidden="true" class="carousel-control-next-icon"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </ng-template>
+
+          <ng-template #item let-item let-i="index">
+            <div class="cast-container">
+              <div
+                class="cast-thumb"
+                [style.background-image]="'url(' + 'https://image.tmdb.org/t/p/w500/' + item.profile_path + ')'"
+              ></div>
+              <h5>{{ item.name }}</h5>
+              <span>{{ item.character }}</span>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-loader [isLoading]="isLoadingMovie || isLoadingCredits"></app-loader>
+</div>

@@ -1,0 +1,66 @@
+@import "src/theme/theme-variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+.movie-titles {
+  padding: 15px;
+}
+
+.pagination-item .disabled:hover {
+  cursor: default !important;
+}
+
+.pagination-item.disabled > .pagination-link {
+  opacity: 0.5 !important;
+}
+
+.pagination-link:hover {
+  cursor: pointer !important;
+}
+
+.pagination-link .current {
+  background-color: $focus-color !important;
+  color: #f2f2f2 !important;
+}
+
+.pagination-link {
+  display: inline-block;
+  background-color: $light-bg !important;
+  color: $dark-font !important;
+  font-weight: 500;
+  font-size: 0.825rem;
+  letter-spacing: 0.3em;
+  padding: 8px 30px 8px;
+  transition: all 0.7s ease-out;
+  text-decoration: none;
+  margin: 0px;
+  border-left: 1px solid rgba(0, 0, 0, 0.568);
+  border-right: 1px solid rgba(0, 0, 0, 0.568);
+}
+
+.movie-titles h5 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.movie-poster {
+  max-width: 100%;
+  -moz-box-shadow: inset 220px -0px 31px -30px rgb(0, 0, 0);
+  -webkit-box-shadow: inset 220px -0px 31px -30px rgb(0, 0, 0);
+  box-shadow: inset 220px 0px 31px -30px rgb(0, 0, 0);
+}
+
+.movie-titles span {
+  font-weight: 100;
+}
+
+.movie-container {
+  padding: 10px;
+}
+
+.movie-container:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}

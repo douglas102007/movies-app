@@ -1,0 +1,77 @@
+@import "src/theme/theme-variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+.login-container {
+  position: absolute;
+  min-width: 550px;
+  background: #000000;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.language-selector {
+  position: absolute;
+  text-align: center;
+  top: 5%;
+  right: 2%;
+  z-index: 99;
+}
+
+.login-bg {
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 100%;
+  width: 100%;
+  background-color: #000000a4;
+  background-image: url("../../assets/cinema-curtains.jpg");
+  filter: blur(3px);
+  -webkit-filter: blur(9px);
+  opacity: 0.3;
+}
+
+.form-check {
+  padding: 10px 30px 10px 30px;
+}
+
+.login-box {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+}
+
+.card-title {
+  color: $body-font !important;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.card {
+  padding: 50px;
+  background-color: #0000005b;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
+  -webkit-box-shadow: 0px 2px 8px 3px rgba(0, 0, 0, 0.473);
+  -moz-box-shadow: 0px 2px 8px 3px rgba(0, 0, 0, 0.473);
+  box-shadow: 0px 2px 8px 3px rgba(0, 0, 0, 0.473);
+}
+
+.ng-invalid.ng-touched:not(form) {
+  border-left: 4px solid theme-color("danger");
+}
+
+@include media-breakpoint-down(xs) {
+  .container {
+    width: 100%;
+  }
+}

@@ -1,0 +1,50 @@
+.backgdrop-bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  min-height: 400px;
+  width: 100%;
+}
+
+.poster-img {
+  margin-top: -300px;
+  padding: 33px;
+  display: flex;
+  justify-content: center;
+}
+
+.poster-img img {
+  max-height: 500px;
+  -webkit-box-shadow: 0px 2px 13px 3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 13px 3px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 13px 3px rgba(0, 0, 0, 0.75);
+}
+
+.movie-details-container {
+  padding: 50px 50px 0px 50px;
+}
+
+.movie-cast-container {
+  padding: 0px 50px 50px 50px;
+}
+
+.movie-details-container h3 {
+  font-weight: 100;
+  font-size: 33px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #ffffff;
+}
+
+.cast-thumb {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border-radius: 100px;
+}
+
+.cast-container {
+  padding: 20px;
+  text-align: center;
+}

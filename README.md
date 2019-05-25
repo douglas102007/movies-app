@@ -19,6 +19,30 @@ npm test                      | Roda os testes unitários com Karman
 npm run e2e                   | Roda os testes e2e com Protractor
 
 
+## Project structure
+
+```
+dist/                        versão compilada
+e2e/                         testes e2e
+src/                         fonte do projeto
+|- app/                      componentes do app
+|  |- core/                  serviços singleton, componentes de uso único
+|  |- shared/                modulos compartilhados(components comuns, diretivas ae pipes)
+|  |- app.component.*        raiz do app
+|  +- ...                    modulos e componentes adicionais
+|- assets/                   assets(imagens, fontes, etc)
+|- environments/             variaveis de ambiente(dev/prod)
+|- theme/                    css global e variaveis css
+|- translations/             arquivos de traduço i18n
+|- index.html                ponto de entrada html
+|- main.scss                 ponto de entrada global do css
+|- main.ts                   ponto de entrada do app
+|- polyfills.ts              polyfills
++- test.ts                   ponto de entrada dos testes unitários
+reports/                     relatórios de teste
+proxy.conf.js                configurtação de proxy
+```
+
 ## To-do
 
 - Geral

@@ -19,7 +19,7 @@ npm test                      | Roda os testes unitários com Karman
 npm run e2e                   | Roda os testes e2e com Protractor
 
 
-## Project structure
+## Estrutura do Projeto
 
 ```
 dist/                        versão compilada
@@ -59,6 +59,7 @@ proxy.conf.js                configurtação de proxy
 
 - Tela de listagem de filmes:
     * Opção para ordenar listagem de filmes
+    * Ajuste tamanho de posters
 
 - Tela de detalhes do filme:
     * Mais dados do filme: Diretor, Roteirista, Trailer do filme, etc.
